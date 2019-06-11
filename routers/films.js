@@ -90,10 +90,10 @@ router.delete('/films', function FilmsDeleteHandler(request, response){
 router.get('/films-categories', function FilmsCatsGetHandler(request, response){
     fModel.findFilmsCats(function DoneGettingById(err, result, fields){
         if (err){
-            console.log("Some error finding by films by category");
+            console.log("Some error finding by films with category");
             console.log(err);
-            response.write("Error finding films by category");
-        }else {
+            response.write("Error finding films with category");
+        } else {
             response.json(result);
         }
     });

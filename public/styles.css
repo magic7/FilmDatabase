@@ -1,0 +1,68 @@
+body {
+  background: #151515 !important;
+}
+.big-text {
+  margin-top: 10px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 4px;
+  text-align: center;
+  color: #e7e7e7;
+  letter-spacing: 7px;
+}
+.med-text {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #e7e7e7;
+  letter-spacing: 2px;
+}
+img {
+  width: 200px;
+  display: block;
+  margin: auto;
+}
+.image-background {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #e7e7e7;
+}
+.border {
+  border:1px solid #e7e7e7;
+}
+.button {
+  text-align:center;
+  background-color: #151515;
+  color: #e7e7e7;
+  border: none;
+  font-family: 'Helvetica Neue', sans-serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  letter-spacing: 2px;
+}
+input {
+  font-family: 'Helvetica Neue', sans-serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  letter-spacing: 2px;
+}
+.guess {
+  text-align: right;
+  font-family: 'Helvetica Neue', sans-serif;
+  color: #e7e7e7;
+  padding-top: 1px;
+  padding-bottom: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  letter-spacing: 2px;
+}
+span {
+  display:block;
+}
