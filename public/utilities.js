@@ -150,15 +150,14 @@ function PopulateFilmFormByID() {
 // Called by update-film.html
 function UpdateFilmByID() {
 	var xhttp = new XMLHttpRequest();
-	var responseText = "";
 	 xhttp.onreadystatechange = function ReceivedCallback() {
-		 		responseText = this.responseText;
 			 if (this.readyState = 4 && this.status == 200) {
 					 document.getElementById("errorMessage").innerHTML = this.responseText;
 			 } else {
 				 // Display error message
 				 document.getElementById("errorMessage").innerHTML = "There was an error updating the film. Please retry.";
 			 }
+			 document.getElementById("updateFilmForm").style.display = 'none';
 	 };
 
 	 // Create request body based on the form info
@@ -171,12 +170,9 @@ function UpdateFilmByID() {
 	 reqBody += "categoryID=" + document.getElementById("catSelect").value;
 
 	 // Send PUT request
-	 xhttp.open("PUT", "api/films/", true);
+	 xhttp.open("PUT", "api/films/", false);
 	 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	 xhttp.send(reqBody);
-
-	 document.getElementById("errorMessage").innerHTML = this.responseText;
-	 document.getElementById("updateFilmForm").style.display = 'none'; //Hide the form after updating
 }
 
 
