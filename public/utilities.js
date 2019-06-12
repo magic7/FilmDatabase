@@ -35,6 +35,8 @@ function PopulateFilmsTable(){
   xhttp.send();
 }
 
+// Issue GET request for film with given ID
+// Called by show-film.html and delete-film.html
 function FindFilmByID() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function ReceivedCallback() {
@@ -74,6 +76,24 @@ function FindFilmByID() {
   };
   xhttp.open("GET", "api/films/" + document.getElementById("filmIDInput").value, true);
   xhttp.send();
+}
+
+// Issue DELETE request for deleting a film with given ID
+// Called by delete-film.html
+function DeleteFilmByID() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function ReceivedCallback() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("errorMessage").innerHTML = "Delete successful";
+    }
+    else {
+      // Display error message
+      document.getElementById("errorMessage").innerHTML = "There was an error deleting the film. Please retry.";
+    }
+  };
+  xhttp.open("DELETE", "api/films/", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("id="+ document.getElementById("filmIDInput").value;);
 }
 
 // Populate category combo box with values retrieved from the database on load
