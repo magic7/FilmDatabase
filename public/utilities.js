@@ -62,6 +62,7 @@ function FindFilmByID() {
                                 "</tr>";
            }
            tableBodyHTML += "</tbody>";
+           document.getElementById("errorMessage").innerHTML = "";
       }
       // Else if nothing is retrieved
       else {
@@ -104,6 +105,40 @@ function PopulateCatsTable(){
 		}
 	};
   xhttp.open("GET", "api/categories", true);
+  xhttp.send();
+}
+
+function FindCatByID() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function ReceivedCallback() {
+    if (this.readyState == 4 && this.status == 200) {
+      var responseJson = JSON.parse(this.responseText);
+      var tableBodyHTML = "";
+      //If a non-empty response comes back
+      if (responseJson.length > 0) {
+          tableBodyHTML += "<thead><tr><th scope=\"col\">Category ID</th><th scope=\"col\">Name</th><th scope=\"col\">Last Updated</th></tr></thead><tbody>";
+
+           //Iterate through responseJson to format each record data into HTML string
+           for (record of responseJson) {
+               var formattedDate = new Date(record["last_update"]).toISOString().slice(0, 19).replace('T', ' ');
+               tableBodyHTML += "<tr>" +
+                                  "	<td>" + record["category_id"] + "</td>" +
+                                  "	<td>" + record["name"] + "</td>" +
+                                  "	<td>" + formattedDate + "</td>" +
+                                "</tr>";
+           }
+           tableBodyHTML += "</tbody>";
+           document.getElementById("errorMessage").innerHTML = "";
+      }
+      // Else if nothing is retrieved
+      else {
+        // Display error message
+        document.getElementById("errorMessage").innerHTML = "No category with such ID";
+      }
+      document.getElementById("table").innerHTML = tableBodyHTML;
+    }
+  };
+  xhttp.open("GET", "api/categories/" + document.getElementById("catIDInput").value, true);
   xhttp.send();
 }
 
