@@ -88,9 +88,8 @@ function FindFilmByID() {
 function DeleteFilmByID() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function ReceivedCallback() {
-    if (this.readyState == 4 && this.status == 200) {
-
-    }
+    if (this.readyState == 4 && this.status == 200) {}
+		else {}
   };
   xhttp.open("DELETE", "api/films/", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -151,9 +150,9 @@ function PopulateFilmFormByID() {
 // Called by update-film.html
 function UpdateFilmByID() {
 	var xhttp = new XMLHttpRequest();
+	var responseText = "";
 	 xhttp.onreadystatechange = function ReceivedCallback() {
-		 		console.log("this.readyState: " + this.readyState);
-				console.log("this.status: " + this.status);
+		 		responseText = this.responseText;
 			 if (this.readyState = 4 && this.status == 200) {
 					 document.getElementById("errorMessage").innerHTML = this.responseText;
 			 } else {
