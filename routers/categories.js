@@ -1,7 +1,7 @@
 var express = require('express');       // imports the express library
 var router = express.Router();          // Router object for routes
 
-var cModel = require('./models/categories');
+var cModel = require('./models/categories.js');
 
 // GET /api/categories --- Gets all the categories
 router.get('/categories', function CatsGetHandler(request, response){

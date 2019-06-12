@@ -1,7 +1,7 @@
 var express = require('express');       // imports the express library
 var router = express.Router();          // Router object for routes
 
-var fModel = require('./models/films');
+var fModel = require('./models/films.js');
 
 // GET /api/films --- Gets all the films
 router.get('/films', function FilmsGetHandler(request, response){
