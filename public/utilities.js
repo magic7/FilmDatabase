@@ -93,7 +93,7 @@ function DeleteFilmByID() {
   };
   xhttp.open("DELETE", "api/films/", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("id="+ document.getElementById("filmIDInput").value;);
+  xhttp.send("id="+ document.getElementById("filmIDInput").value);
 }
 
 // Populate category combo box with values retrieved from the database on load
