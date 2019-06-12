@@ -161,7 +161,7 @@ function UpdateFilmByID() {
 	 };
 
 	 // Create request body based on the form info
-	 var reqBody = "id=" + document.getElementById("updateID").value + "&";
+	 var reqBody = "id=" + document.getElementById("id").value + "&";
 	 reqBody += "title=" + document.getElementById("title").value + "&";
 	 reqBody += "description=" + document.getElementById("description").value + "&";
 	 reqBody += "releaseYear=" + document.getElementById("releaseYear").value + "&";
