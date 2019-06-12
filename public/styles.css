@@ -53,7 +53,7 @@ input {
   margin-bottom: 3px;
   letter-spacing: 2px;
 }
-.guess {
+.inputTextbox {
   text-align: right;
   font-family: 'Helvetica Neue', sans-serif;
   color: #e7e7e7;
