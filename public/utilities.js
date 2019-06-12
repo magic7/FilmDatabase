@@ -65,7 +65,11 @@ function FindFilmByID() {
            }
            tableBodyHTML += "</tbody>";
            document.getElementById("errorMessage").innerHTML = "";
-           document.getElementById("deleteButton").style.display = 'block';
+
+					 var deleteButton = document.getElementById("deleteButton");
+					 if(deleteButton){
+							 deleteButton.style.display = 'block';
+					 }
       }
       // Else if nothing is retrieved
       else {
@@ -96,6 +100,8 @@ function DeleteFilmByID() {
   document.getElementById("deleteButton").style.display = 'none';
 }
 
+// Populate a form filled with a film information
+// Called by update-film.html
 function PopulateFilmFormByID() {
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function ReceivedCallback() {
@@ -105,18 +111,7 @@ function PopulateFilmFormByID() {
 			if (responseJson.length > 0) {
 
 					 for (record of responseJson) {
-							 var formattedDate = new Date(record["last_update"]).toISOString().slice(0, 19).replace('T', ' ');
-							 // tableBodyHTML += "<tr>" +
-								// 									"	<td>" + record["film_id"] + "</td>" +
-								// 									"	<td>" + record["title"] + "</td>" +
-								// 									"	<td>" + record["description"] + "</td>" +
-								// 									"	<td>" + record["release_year"] + "</td>" +
-								// 									"	<td>" + record["length"] + "</td>" +
-								// 									"	<td>" + record["rating"] + "</td>" +
-								// 									"	<td>" + record["category_id"] + "</td>" +
-								// 									"	<td>" + formattedDate + "</td>" +
-								// 								"</tr>";
-
+					 		  var formattedDate = new Date(record["last_update"]).toISOString().slice(0, 19).replace('T', ' ');
 								document.getElementById("id").value = record["film_id"];
 								document.getElementById("title").value = record["title"];
 								document.getElementById("description").value = record["description"];
@@ -151,6 +146,35 @@ function PopulateFilmFormByID() {
 
 	document.getElementById("updateFilmForm").style.display = 'block';
 }
+
+// Issue PUT request for updating a film with given ID
+// Called by update-film.html
+function UpdateFilmByID() {
+	var xhttp = new XMLHttpRequest();
+	 xhttp.onreadystatechange = function ReceivedCallback() {
+			 if (this.readyState = 4 && this.status == 200) {
+					 document.getElementById("errorMessage").innerHTML = this.responseText;
+			 } else {
+				 // Display error message
+				 document.getElementById("errorMessage").innerHTML = "There was an error updating the film. Please retry.";
+			 }
+	 };
+
+	 // Create request body based on the form info
+	 var reqBody = "id=" + document.getElementById("updateID").value + "&";
+	 reqBody += "title=" + document.getElementById("title").value + "&";
+	 reqBody += "description=" + document.getElementById("description").value + "&";
+	 reqBody += "releaseYear=" + document.getElementById("releaseYear").value + "&";
+	 reqBody += "length=" + document.getElementById("length").value + "&";
+	 reqBody += "rating=" + document.getElementById("rating").value + "&";
+	 reqBody += "categoryID=" + document.getElementById("catSelect").value;
+
+	 // Send PUT request
+	 xhttp.open("PUT", "api/films/", true);
+	 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	 xhttp.send(reqBody);
+}
+
 
 // Populate category combo box with values retrieved from the database on load
 // Called by insert-film.html

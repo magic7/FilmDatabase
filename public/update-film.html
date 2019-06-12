@@ -38,7 +38,7 @@
       <p class="med-text">--------</p>
 
 
-      <form id="updateFilmForm" action="api/films" method="PUT" style="display: none;">
+      <div id="updateFilmForm" style="display: none;">
         <!-- ID row -->
         <div class="row justify-content-center center-block">
          <div class="col col-sm-1 inputTextbox ">
@@ -128,12 +128,12 @@
 
         <div class="row justify-content-center center-block">
           <div class="col-sm-6 col-sm-offset-3 text-center">
-            <button id="submit" class="btn btn-secondary btn-sm button" type="submit" value="Submit">
+            <button id="submit" class="btn btn-secondary btn-sm button" type="submit" value="Submit" onclick="UpdateFilmByID();">
               Update
             </button>
           </div>
         </div>
-      </form>
+      </div>
 
     </div>
   </body>
