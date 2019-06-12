@@ -152,6 +152,8 @@ function PopulateFilmFormByID() {
 function UpdateFilmByID() {
 	var xhttp = new XMLHttpRequest();
 	 xhttp.onreadystatechange = function ReceivedCallback() {
+		 		console.log("this.readyState: " + this.readyState);
+				console.log("this.status: " + this.status);
 			 if (this.readyState = 4 && this.status == 200) {
 					 document.getElementById("errorMessage").innerHTML = this.responseText;
 			 } else {
@@ -173,6 +175,9 @@ function UpdateFilmByID() {
 	 xhttp.open("PUT", "api/films/", true);
 	 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	 xhttp.send(reqBody);
+
+	 document.getElementById("errorMessage").innerHTML = this.responseText;
+	 document.getElementById("updateFilmForm").style.display = 'none'; //Hide the form after updating
 }
 
 
