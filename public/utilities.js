@@ -22,9 +22,7 @@ function PopulateFilmsTable(){
                                   "	<td>" + formattedDate + "</td>" +
                                 "</tr>";
            }
-
            document.getElementById("tableBody").innerHTML = tableBodyHTML;
-
       }
       // Else if nothing is retrieved
       else {
@@ -36,6 +34,42 @@ function PopulateFilmsTable(){
   xhttp.open("GET", "api/films-categories", true);
   xhttp.send();
 }
+
+
+
+// Called by categories.html to populate table with all categories
+function PopulateCatsTable(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function ReceivedCallback() {
+		if (this.readyState == 4 && this.status == 200) {
+      var responseJson = JSON.parse(this.responseText);
+
+      //If a non-empty response comes back
+      if (responseJson.length > 0) {
+           var tableBodyHTML = "";
+           //Iterate through responseJson to format each record data into HTML string
+           for (record of responseJson) {
+               var formattedDate = new Date(record["last_update"]).toISOString().slice(0, 19).replace('T', ' ');
+               tableBodyHTML += "<tr>" +
+                                  "	<td>" + record["category_id"] + "</td>" +
+                                  "	<td>" + record["name"] + "</td>" +
+                                  "	<td>" + formattedDate + "</td>" +
+                                "</tr>";
+           }
+           document.getElementById("tableBody").innerHTML = tableBodyHTML;
+      }
+      // Else if nothing is retrieved
+      else {
+        // Display error message
+        document.getElementById("errorMessage").innerHTML = "No category retrieved";
+      }
+		}
+	};
+  xhttp.open("GET", "api/categories", true);
+  xhttp.send();
+}
+
+
 
 // function CreateSelect(departments){
 // 	// <select id="department" name="department">

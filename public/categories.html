@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>All Categories</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ray Tran">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="utilities.js"></script>
+    <script type="text/javascript">
+		    window.addEventListener('load', PopulateCatsTable);
+		</script>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+     <h1 class="big-text">FILMS & CATEGORIES DATABASE</h1>
+     <h2 class="med-text">ALL CATEGORIES</h2>
+      <div class="row justify-content-center">
+        <div class="justify-content-center center-block">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Category ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Last Updated</th>
+              </tr>
+            </thead>
+            <tbody id= "tableBody">
+            </tbody>
+          </table>
+          <p id="errorMessage" class="med-text"></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

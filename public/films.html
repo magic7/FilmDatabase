@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Films and Categories Database</title>
+    <title>All Films</title>
     <meta charset="UTF-8">
     <meta name="author" content="Ray Tran">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -33,65 +33,11 @@
               </tr>
             </thead>
             <tbody id= "tableBody">
-              <!-- <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr> -->
             </tbody>
           </table>
           <p id="errorMessage" class="med-text"></p>
         </div>
       </div>
-
-      <!--
-      <body onload="getFilms()">
-                <table class="table table-striped">
-                        <thead>
-                                <tr id="tblHeader">
-                                </tr>
-                        </thead>
-                        <tbody id="tblBody">
-                        </tbody>
-                </table>
-                <script>
-                        function getFilms(){
-                                let xhttp = new XMLHttpRequest();
-                                xhttp.onreadystatechange = function(){
-                                        if (this.readyState == 4 && this.status == 200){
-                                                let head = JSON.parse(this.response)[0];
-                                                let body = JSON.parse(this.response)[1];
-                                                if (head != "Error"){
-                                                        document.getElementById("tblHeader").innerHTML = head;
-                                                        document.getElementById("tblBody").innerHTML = body;
-                                                }
-                                                else {
-                                                        document.getElementById("tblHeader").innerHTML = "<th scope='col'>Error: Film retrieval failed.</th>";
-                                                        document.getElementById("tblBody").innerHTML = "";
-                                                }
-                                        }
-                                };
-                                xhttp.open("GET", "api/films-categories", true);
-                                xhttp.send();
-                        }
-                </script>
-        </body>
-
-    -->
-
     </div>
   </body>
 </html>
