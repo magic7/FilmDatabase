@@ -7,7 +7,6 @@ function PopulateFilmsTable(){
 
       //If a non-empty response comes back
       if (responseJson.length > 0) {
-			     document.getElementById("tableBody").innerHTML = CreateSelect(JSON.parse(this.responseText));
            var tableBodyHTML = "";
            //Iterate through responseJson to format each record data into HTML string
            for (record of responseJson) {
