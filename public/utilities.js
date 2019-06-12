@@ -106,16 +106,16 @@ function PopulateFilmFormByID() {
 
 					 for (record of responseJson) {
 							 var formattedDate = new Date(record["last_update"]).toISOString().slice(0, 19).replace('T', ' ');
-							 tableBodyHTML += "<tr>" +
-																	"	<td>" + record["film_id"] + "</td>" +
-																	"	<td>" + record["title"] + "</td>" +
-																	"	<td>" + record["description"] + "</td>" +
-																	"	<td>" + record["release_year"] + "</td>" +
-																	"	<td>" + record["length"] + "</td>" +
-																	"	<td>" + record["rating"] + "</td>" +
-																	"	<td>" + record["category_id"] + "</td>" +
-																	"	<td>" + formattedDate + "</td>" +
-																"</tr>";
+							 // tableBodyHTML += "<tr>" +
+								// 									"	<td>" + record["film_id"] + "</td>" +
+								// 									"	<td>" + record["title"] + "</td>" +
+								// 									"	<td>" + record["description"] + "</td>" +
+								// 									"	<td>" + record["release_year"] + "</td>" +
+								// 									"	<td>" + record["length"] + "</td>" +
+								// 									"	<td>" + record["rating"] + "</td>" +
+								// 									"	<td>" + record["category_id"] + "</td>" +
+								// 									"	<td>" + formattedDate + "</td>" +
+								// 								"</tr>";
 
 								document.getElementById("id").value = record["film_id"];
 								document.getElementById("title").value = record["title"];
