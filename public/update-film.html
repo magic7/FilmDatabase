@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Film</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ray Tran">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="utilities.js"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <h1 class="big-text">FILMS & CATEGORIES DATABASE</h1>
+      <h2 class="med-text">UPDATE FILM</h2>
+
+      <div class="row justify-content-center center-block">
+       <div class="col col-sm-1 justify-content-center center-block inputTextbox" text-align="right">
+         <label for="filmIDInput" class="guess">Film ID:</label>
+       </div>
+        <div class="col col-sm-3 justify-content-center center-block">
+          <div class="input-group mb-3">
+            <input type="number" class="form-control" id="filmIDInput" name="filmIDInput" min="0" required>
+          </div>
+        </div>
+        <div class="col col-sm-1 justify-content-center center-block">
+          <button class="btn btn-secondary btn-sm button" onclick="PopulateFilmFormByID();">
+            Find
+          </button>
+        </div>
+      </div>
+
+      <p id="errorMessage" class="med-text"></p>
+      <p class="med-text">--------</p>
+
+
+      <form id="updateFilmForm" action="api/films" method="PUT" style="display: none;">
+        <!-- ID row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="title" class="guess">ID:</label>
+         </div>
+          <div class="col col-sm-3">
+            <div class="input-group mb-3">
+              <input type="number" class="form-control" id="id" name="id" readonly>
+            </div>
+          </div>
+        </div>
+
+        <!-- Title row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="title" class="guess">Title:</label>
+         </div>
+          <div class="col col-sm-3">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="description" class="guess">Description:</label>
+         </div>
+          <div class="col col-sm-3">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="description" name="description" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Release year row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="releaseYear" class="guess">Release year:</label>
+         </div>
+          <div class="col col-sm-3">
+            <div class="input-group mb-3">
+              <input type="number" min="1850" class="form-control" id="releaseYear" name="releaseYear" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Length row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="length" class="guess">Length:</label>
+         </div>
+          <div class="col col-sm-3">
+            <div class="input-group mb-3">
+              <input type="number" min="0" class="form-control" id="length" name="length" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rating row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="rating" class="guess">Rating:</label>
+         </div>
+          <div class="col col-sm-3">
+            <select class="form-control" id="rating" name="rating">
+              <option value="G">G</option>
+              <option value="PG">PG</option>
+              <option value="PG-13">PG-13</option>
+              <option value="R">R</option>
+              <option value="NC-17">NC-17</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="catSelect" class="guess">Category:</label>
+         </div>
+          <div class="col col-sm-3">
+            <select class="form-control" id="catSelect" name="categoryID">
+            </select>
+          </div>
+        </div>
+
+        <div class="row justify-content-center center-block">
+          <div class="col-sm-6 col-sm-offset-3 text-center">
+            <button id="submit" class="btn btn-secondary btn-sm button" type="submit" value="Submit">
+              Update
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </body>
+</html>

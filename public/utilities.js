@@ -91,9 +91,65 @@ function DeleteFilmByID() {
   xhttp.open("DELETE", "api/films/", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("id="+ document.getElementById("filmIDInput").value);
-  
+
   document.getElementById("table").innerHTML = "";
   document.getElementById("deleteButton").style.display = 'none';
+}
+
+function PopulateFilmFormByID() {
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function ReceivedCallback() {
+		if (this.readyState == 4 && this.status == 200) {
+			var responseJson = JSON.parse(this.responseText);
+			//If a non-empty response comes back
+			if (responseJson.length > 0) {
+
+					 for (record of responseJson) {
+							 var formattedDate = new Date(record["last_update"]).toISOString().slice(0, 19).replace('T', ' ');
+							 tableBodyHTML += "<tr>" +
+																	"	<td>" + record["film_id"] + "</td>" +
+																	"	<td>" + record["title"] + "</td>" +
+																	"	<td>" + record["description"] + "</td>" +
+																	"	<td>" + record["release_year"] + "</td>" +
+																	"	<td>" + record["length"] + "</td>" +
+																	"	<td>" + record["rating"] + "</td>" +
+																	"	<td>" + record["category_id"] + "</td>" +
+																	"	<td>" + formattedDate + "</td>" +
+																"</tr>";
+
+								document.getElementById("id").value = record["film_id"];
+								document.getElementById("title").value = record["title"];
+								document.getElementById("description").value = record["description"];
+								document.getElementById("release_year").value = record["release_year"];
+								document.getElementById("length").value = record["length"];
+
+								for (const option of document.getElementById('rating')) {
+      							if (option.value == record["rating"]) {
+											option.setAttribute('selected', true);
+											break;
+										}
+    						}
+
+								for (const option of document.getElementById('catSelect')) {
+										if (option.value == record["category_id"]) {
+											option.setAttribute('selected', true);
+											break;
+										}
+								}
+					 }
+					 document.getElementById("errorMessage").innerHTML = "";
+			}
+			// Else if nothing is retrieved
+			else {
+				// Display error message
+				document.getElementById("errorMessage").innerHTML = "No film with such ID";
+			}
+		}
+	};
+	xhttp.open("GET", "api/films/" + document.getElementById("filmIDInput").value, true);
+	xhttp.send();
+
+	document.getElementById("updateFilmForm").style.display = 'block';
 }
 
 // Populate category combo box with values retrieved from the database on load
