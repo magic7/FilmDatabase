@@ -1,5 +1,5 @@
 // Called by films.html to populate table with all films and their category
-function populateFilmsTable(){
+function PopulateFilmsTable(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function ReceivedCallback() {
 		if (this.readyState == 4 && this.status == 200) {
