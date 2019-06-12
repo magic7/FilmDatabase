@@ -69,6 +69,7 @@ router.put('/films', function FilmsUpdateHandler(request, response){
 							response.write("Error updating");
 					} else {
 							console.log("Successfully updated film!");
+              // response.redirect("/update-film.html");
 					}
 			});
 });
@@ -82,6 +83,7 @@ router.delete('/films', function FilmsDeleteHandler(request, response){
             response.write("Error deleting by id");
         } else {
             console.log("Successfully deleted film!")
+            // response.redirect("/delete-film.html");
         }
     });
 });
