@@ -77,6 +77,7 @@ function FindFilmByID() {
 }
 
 // Populate category combo box with values retrieved from the database on load
+// Called by insert-film.html
 function PopulateCatsComboBox(){
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function ReceivedCallback() {
@@ -95,7 +96,6 @@ function CreateSelect(categories){
 	}
 	return retVal;
 }
-
 
 // Called by categories.html to populate table with all categories
 function PopulateCatsTable(){
