@@ -92,7 +92,7 @@ function PopulateCatsComboBox(){
 function CreateSelect(categories){
 	var retVal = "";
 	for (record of categories) {
-    	retVal += "<option value=" + record["name"] + ">" + record["name"] + "</option>";
+    	retVal += "<option value=" + record["category_id"] + ">" + record["name"] + "</option>";
 	}
 	return retVal;
 }
