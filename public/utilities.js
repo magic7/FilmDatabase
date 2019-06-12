@@ -76,6 +76,27 @@ function FindFilmByID() {
   xhttp.send();
 }
 
+// Populate category combo box with values retrieved from the database on load
+function PopulateCatsComboBox(){
+	var xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function ReceivedCallback() {
+		if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("catSelect").innerHTML = CreateSelect(JSON.parse(this.responseText));
+		}
+	};
+	xhttp.open("GET", "api/categories", true);
+	xhttp.send();
+}
+
+function CreateSelect(categories){
+	var retVal = "";
+	for (var record in categories){
+		retVal += `<option value="${record["name"]}">${record["name"]}</option>`;
+	}
+	return retVal;
+}
+
+
 // Called by categories.html to populate table with all categories
 function PopulateCatsTable(){
 	var xhttp = new XMLHttpRequest();
@@ -141,18 +162,3 @@ function FindCatByID() {
   xhttp.open("GET", "api/categories/" + document.getElementById("catIDInput").value, true);
   xhttp.send();
 }
-
-// function CreateSelect(departments){
-// 	// <select id="department" name="department">
-// 	// 		<option value="id1">name1</option>
-// 	//		<option value="id2">name2</option>
-// 	//		...
-// 	// </select>
-// 	var retVal = "";
-// 	retVal += '<select id="department" name="department" class="form-control"> \n';
-// 	for (var index in departments){
-// 		retVal += `<option value="${departments[index].dept_no}">${departments[index].dept_name}</option>`;
-// 	}
-// 	retVal += '</select>';
-// 	return retVal;
-// }

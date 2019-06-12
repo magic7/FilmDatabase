@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Insert Film</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ray Tran">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="utilities.js"></script>
+    <script type="text/javascript">
+        window.addEventListener('load', PopulateCatsComboBox);
+    </script>
+
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <h1 class="big-text">FILMS & CATEGORIES DATABASE</h1>
+      <h2 class="med-text">INSERT FILM</h2>
+
+      <form action="api/films" method="POST">
+        <!-- Title row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="filmTitleInput" class="guess">Title:</label>
+         </div>
+          <div class="col col-sm-3">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="filmTitleInput" name="filmTitleInput" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="descriptionInput" class="guess">Description:</label>
+         </div>
+          <div class="col col-sm-3">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="descriptionInput" name="descriptionInput" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Release year row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="yearInput" class="guess">Release year:</label>
+         </div>
+          <div class="col col-sm-3">
+            <div class="input-group mb-3">
+              <input type="number" min="1850" class="form-control" id="yearInput" name="yearInput" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Length row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="lengthInput" class="guess">Length:</label>
+         </div>
+          <div class="col col-sm-3">
+            <div class="input-group mb-3">
+              <input type="number" min="0" class="form-control" id="lengthInput" name="lengthInput" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rating row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="ratingSelect" class="guess">Rating:</label>
+         </div>
+          <div class="col col-sm-3">
+            <select class="form-control" id="ratingSelect">
+              <option value="G">G</option>
+              <option value="PG">PG</option>
+              <option value="PG-13">PG-13</option>
+              <option value="R">R</option>
+              <option value="NC-17">NC-17</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="catSelect" class="guess">Category:</label>
+         </div>
+          <div class="col col-sm-3">
+            <select class="form-control" id="catSelect">
+            </select>
+          </div>
+        </div>
+
+        <div class="row justify-content-center center-block">
+          <div class="col-sm-6 col-sm-offset-3 text-center">
+            <button id="submit" class="btn btn-secondary btn-sm button" type="submit" value="Submit" onclick="InsertFilm();">
+              Insert
+            </button>
+          </div>
+        </div>
+
+        <p id="errorMessage" class="med-text"></p>
+
+      </form>
+
+      <div class="row justify-content-center">
+        <div class="justify-content-center center-block">
+          <table id= "table" class="table table-dark table-hover">
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

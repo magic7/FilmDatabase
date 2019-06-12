@@ -51,17 +51,24 @@ input {
   padding-bottom: 10px;
   margin-top: 3px;
   margin-bottom: 3px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+}
+select {
+  font-family: 'Helvetica Neue', sans-serif;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 3px;
+  margin-bottom: 17px;
+  letter-spacing: 1px;
 }
 .inputTextbox {
-  text-align: right;
   font-family: 'Helvetica Neue', sans-serif;
   color: #e7e7e7;
   padding-top: 1px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   margin-top: 3px;
   margin-bottom: 3px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 span {
   display:block;
