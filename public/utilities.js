@@ -65,6 +65,7 @@ function FindFilmByID() {
            }
            tableBodyHTML += "</tbody>";
            document.getElementById("errorMessage").innerHTML = "";
+           document.getElementById("deleteButton").style.display = 'block';
       }
       // Else if nothing is retrieved
       else {
@@ -85,10 +86,8 @@ function DeleteFilmByID() {
   xhttp.onreadystatechange = function ReceivedCallback() {
     if (this.readyState == 4 && this.status == 200) {
       document.getElementById("errorMessage").innerHTML = "Delete successful";
-    }
-    else {
-      // Display error message
-      document.getElementById("errorMessage").innerHTML = "There was an error deleting the film. Please retry.";
+      document.getElementById("deleteButton").style.display = 'none';
+      document.getElementById("table").innerHTML = "";
     }
   };
   xhttp.open("DELETE", "api/films/", true);
