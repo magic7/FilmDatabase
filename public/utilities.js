@@ -89,7 +89,6 @@ function DeleteFilmByID() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function ReceivedCallback() {
     if (this.readyState == 4 && this.status == 200) {}
-		else {}
   };
   xhttp.open("DELETE", "api/films/", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -153,11 +152,7 @@ function UpdateFilmByID() {
 	 xhttp.onreadystatechange = function ReceivedCallback() {
 			 if (xhttp.readyState = 4 && xhttp.status == 200) {
 					 document.getElementById("errorMessage").innerHTML = this.responseText;
-			 } else {
-				 // Display error message
-				 document.getElementById("errorMessage").innerHTML = "There was an error updating the film. Please retry.";
 			 }
-			 document.getElementById("updateFilmForm").style.display = 'none';
 	 };
 
 	 // Create request body based on the form info
@@ -173,6 +168,8 @@ function UpdateFilmByID() {
 	 xhttp.open("PUT", "api/films/", true);
 	 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	 xhttp.send(reqBody);
+
+	 document.getElementById("updateFilmForm").style.display = 'none';
 }
 
 
