@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Insert Category</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Ray Tran">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="utilities.js"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <h1 class="big-text">FILMS & CATEGORIES DATABASE</h1>
+      <h2 class="med-text">INSERT CATEGORY</h2>
+
+      <form action="/api/categories" method="POST">
+        <!-- Name row -->
+        <div class="row justify-content-center center-block">
+         <div class="col col-sm-1 inputTextbox ">
+           <label for="name" class="guess">Name:</label>
+         </div>
+          <div class="col col-sm-3">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center center-block">
+          <div class="col-sm-6 col-sm-offset-3 text-center">
+            <button id="submit" class="btn btn-secondary btn-sm button" type="submit" value="Submit">
+              Insert
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
