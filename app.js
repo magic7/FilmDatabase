@@ -26,8 +26,8 @@ app.all('/api', function HandleAll(request, response, next){
     next();
 });
 
-var cRouter = require('./router/categories.js');    // get an instance of the categories Router
-var fRouter = require('./router/films.js');         // get an instance of the films Router
+var cRouter = require('./routers/categories.js');    // get an instance of the categories Router
+var fRouter = require('./routers/films.js');         // get an instance of the films Router
 
 app.use(express.static('public'));
 
