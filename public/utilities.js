@@ -120,7 +120,7 @@ function PopulateFilmFormByID() {
 								document.getElementById("id").value = record["film_id"];
 								document.getElementById("title").value = record["title"];
 								document.getElementById("description").value = record["description"];
-								document.getElementById("release_year").value = record["release_year"];
+								document.getElementById("releaseYear").value = record["release_year"];
 								document.getElementById("length").value = record["length"];
 
 								for (const option of document.getElementById('rating')) {
