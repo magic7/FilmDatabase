@@ -85,14 +85,15 @@ function DeleteFilmByID() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function ReceivedCallback() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("errorMessage").innerHTML = "Delete successful";
-      document.getElementById("deleteButton").style.display = 'none';
-      document.getElementById("table").innerHTML = "";
+
     }
   };
   xhttp.open("DELETE", "api/films/", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("id="+ document.getElementById("filmIDInput").value);
+  
+  document.getElementById("table").innerHTML = "";
+  document.getElementById("deleteButton").style.display = 'none';
 }
 
 // Populate category combo box with values retrieved from the database on load
