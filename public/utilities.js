@@ -88,7 +88,9 @@ function FindFilmByID() {
 function DeleteFilmByID() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function ReceivedCallback() {
-    if (this.readyState == 4 && this.status == 200) {}
+    if (this.readyState == 4 && this.status == 200) {
+			document.getElementById("errorMessage").innerHTML = this.responseText;
+		}
   };
   xhttp.open("DELETE", "api/films/", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
