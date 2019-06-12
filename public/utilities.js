@@ -89,6 +89,7 @@ function PopulateCatsComboBox(){
 }
 
 function CreateSelect(categories){
+  console.log(categories);
 	var retVal = "";
 	for (var record in categories){
 		retVal += `<option value="${record["name"]}">${record["name"]}</option>`;
