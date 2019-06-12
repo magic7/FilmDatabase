@@ -10,6 +10,7 @@ function PopulateFilmsTable(){
            var tableBodyHTML = "";
            //Iterate through responseJson to format each record data into HTML string
            for (record of responseJson) {
+               var formattedDate = new Date(record["last_update"]).toISOString().slice(0, 19).replace('T', ' ');
                tableBodyHTML += "<tr>" +
                                   "	<td>" + record["film_id"] + "</td>" +
                                   "	<td>" + record["title"] + "</td>" +
@@ -18,7 +19,7 @@ function PopulateFilmsTable(){
                                   "	<td>" + record["length"] + "</td>" +
                                   "	<td>" + record["rating"] + "</td>" +
                                   "	<td>" + record["name"] + "</td>" +
-                                  "	<td>" + record["last_update"] + "</td>" +
+                                  "	<td>" + formattedDate + "</td>" +
                                 "</tr>";
            }
 
