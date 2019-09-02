@@ -2,7 +2,7 @@
 Films application with RESTful Backend and Frontend
 
 ## Technologies/Methodologies used
-JavaScript, HTML, CSS, NodeJS, Express, REST, MySQL
+JavaScript, HTML, CSS, NodeJS, Express, REST, MySQL, Bootstrap
 
 ## Backend
 - `GET		/api/films`
@@ -28,5 +28,3 @@ All resources return JSON.
 - `categories.html`
 - `show-category.html`
 - `insert-category.html`
-
-Used Bootstrap
